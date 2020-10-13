@@ -1,4 +1,3 @@
-
 package tda_pilas;
 
 public class Pila implements PilaProceso {
@@ -10,15 +9,15 @@ public class Pila implements PilaProceso {
         public Nodo(URL url) {
             this.url = url;
         }
-    }
+    } // fin clase interna Nodo
     
     private Nodo cima;
     
-    private int longitud = 0;
+    private int longitud;
    
     @Override
     public void apilar(URL url) {
-        Nodo nodo = new Nodo(url);
+        Nodo nodo = new Nodo(url);        
         nodo.siguiente = cima;
         cima = nodo;
         longitud++;
@@ -32,7 +31,7 @@ public class Pila implements PilaProceso {
             eliminar.siguiente = null;
             longitud--;
         }
-    }
+    } // fin desapilar()
 
     @Override
     public URL obtener() {
@@ -40,9 +39,10 @@ public class Pila implements PilaProceso {
             return null;   
         } else {
             return cima.url;
-        }
-        
-    }
+        }  
+        // ej. operador ternario
+        // return (cima == null) ? null : cima.url;
+    } // fin obtener()
 
     @Override
     public int longitud() {
@@ -66,7 +66,7 @@ public class Pila implements PilaProceso {
             temp = temp.siguiente;
             } 
         }
-        System.out.println("");
-        
-    }
-}
+        System.out.println("");        
+    } // fin mostrarPila()
+    
+} // fin clase Pila
