@@ -1,7 +1,6 @@
-
 package tda_colas;
 
-public class MiColaProceso implements ColaProceso{
+public class MiColaProceso implements ColaProceso{    
     
     private class NodoProceso {
         public Trabajo trabajo;
@@ -13,6 +12,7 @@ public class MiColaProceso implements ColaProceso{
     }
     
     private NodoProceso cabeza, ultimo;
+    private int longitud = 0;
     
     @Override
     public void encolar(Trabajo t) {        
@@ -23,6 +23,7 @@ public class MiColaProceso implements ColaProceso{
             ultimo.siguiente = nuevoNodo;            
         }
         ultimo = nuevoNodo;
+        longitud++;
     }
 
     @Override
@@ -35,6 +36,7 @@ public class MiColaProceso implements ColaProceso{
                 ultimo = null;
             }
         }
+        longitud--;
     }
 
     @Override
@@ -43,8 +45,26 @@ public class MiColaProceso implements ColaProceso{
             return null;
         } else {
             return cabeza.trabajo;
-        }
+        }        
     }
     
+    @Override
+    public int longitudCola() { return this.longitud; }
     
-}
+    @Override
+    public void mostrarCola() {
+        System.out.println("Primero en la Cola");
+        
+//        while (cabeza != null) {
+//            System.out.println(this.cabeza.trabajo);
+//            cabeza = this.cabeza.siguiente;
+//        }
+        
+        NodoProceso temp = cabeza;
+        while(temp != null) {
+            System.out.println(temp.trabajo);
+            temp = temp.siguiente;
+        }
+    } // fin mostrarCola()
+    
+} // fin clase MiColaProceso

@@ -27,7 +27,8 @@ public class Trabajo {
     
     @Override
     public String toString() {
-        return String.format("Autor: %-20s Titulo: %-20s Estado: %-10s \n", this.autor, this.titulo, this.impreso);
+        return String.format("Autor: %-10s Titulo: %-10s Impreso: %-10s", 
+            this.autor, this.titulo, this.impreso);
     }
     
 }

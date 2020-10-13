@@ -15,8 +15,22 @@ public class Principal {
         
         cola1.encolar(trabajo1);
         cola1.encolar(trabajo2);
+        cola1.encolar(trabajo3);
         
-        System.out.println(trabajo1);
+        cola1.mostrarCola();
+        System.out.printf("Hay %d elementos en la cola. \n", cola1.longitudCola());
+        System.out.println("");
+        
+        Trabajo trabajo4 = cola1.obtener();
+        trabajo4.setImpreso(false);
+        cola1.mostrarCola();
+        System.out.printf("Hay %d elementos en la cola. \n", cola1.longitudCola());
+        System.out.println(trabajo4);
+        
+        
+        //cola1.mostrarCola();
+        
+        System.out.println(cola1.longitudCola());
         
     }
     
