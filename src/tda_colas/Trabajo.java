@@ -1,4 +1,3 @@
-
 package tda_colas;
 
 public class Trabajo {
@@ -29,6 +28,5 @@ public class Trabajo {
     public String toString() {
         return String.format("Autor: %-10s Titulo: %-10s Impreso: %-10s", 
             this.autor, this.titulo, this.impreso);
-    }
-    
-}
+    }    
+} // fin clase Trabajo
