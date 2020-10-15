@@ -5,7 +5,7 @@ public class BST implements IBST<Empleado>{
     
     private Empleado valor;
     
-    private BST izquierdo, derecho;
+    private BST izquierdo, derecho, padre;
     
     @Override
     public boolean esVacio() { 
@@ -17,23 +17,28 @@ public class BST implements IBST<Empleado>{
         return valor != null && izquierdo == null && derecho == null;
     } // fin esHoja()
         
-    @Override
-    public void insertar(Empleado empl) {
+    private void insertarImpl(Empleado empl, BST padre) {
         if (valor == null) {
             this.valor = empl;
+            this.padre = padre;
         } else {
             if (empl.compareTo(valor) < 0) {
                 if (izquierdo == null) izquierdo = new BST();
-                izquierdo.insertar(empl);
+                izquierdo.insertarImpl(empl, this);
             } else if (empl.compareTo(valor) > 0) {
                 if (derecho == null) derecho = new BST();
-                derecho.insertar(empl);
+                derecho.insertarImpl(empl, this);
             } else {
                 throw new RuntimeException("Insertando elemento duplicado");
             }
         }
     } // fin insertar()
-
+    
+    @Override
+    public void insertar(Empleado empl) {
+        insertarImpl(empl, null);
+    }
+    
     @Override
     public boolean existe(int id) {
         if (valor != null) {
@@ -109,6 +114,45 @@ public class BST implements IBST<Empleado>{
     
     @Override
     public void eliminar(int id) {
-        
+        if (valor != null) {
+            if (id == valor.getId()) {
+                eliminarImpl(id);
+            } else if (id < valor.getId() && izquierdo != null) {
+                izquierdo.eliminar(id);
+            } else if (id > valor.getId() && derecho != null) {
+                derecho.eliminar(id);
+            }
+        }
     } // fin eliminar()
+    
+    private void eliminarImpl(int id) {
+        if (izquierdo != null && derecho != null) {
+            // eliminar con 2 hijos
+            BST minimo = derecho.minimo();
+            this.valor = minimo.valor;
+            derecho.eliminar(minimo.valor.getId());
+        } else if (izquierdo != null || derecho != null) {
+            // eliminar con 1 hijo
+            BST sustituto = izquierdo != null ? izquierdo : derecho;
+            this.valor = sustituto.valor;
+            this.izquierdo = sustituto.izquierdo;
+            this.derecho = sustituto.derecho;
+        } else {
+            // eliminar con 0 hijos
+            if (padre != null) {
+                if (this == padre.izquierdo) padre.izquierdo = null;
+                if (this == padre.derecho) padre.derecho = null;
+                padre = null;
+            }
+            valor = null;
+        }
+    }
+    
+    private BST minimo () {
+        if (izquierdo != null && !izquierdo.esVacio()) {
+            return izquierdo.minimo();
+        } else {
+            return this;
+        }
+    }
 } // fin clase BST
