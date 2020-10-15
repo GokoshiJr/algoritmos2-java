@@ -16,7 +16,12 @@ public class BST implements IBST<Empleado>{
     public boolean esHoja() {
         return valor != null && izquierdo == null && derecho == null;
     } // fin esHoja()
-        
+    
+    @Override
+    public void insertar(Empleado empl) {
+        insertarImpl(empl, null);
+    } // fin insertarImpl()
+    
     private void insertarImpl(Empleado empl, BST padre) {
         if (valor == null) {
             this.valor = empl;
@@ -32,12 +37,7 @@ public class BST implements IBST<Empleado>{
                 throw new RuntimeException("Insertando elemento duplicado");
             }
         }
-    } // fin insertar()
-    
-    @Override
-    public void insertar(Empleado empl) {
-        insertarImpl(empl, null);
-    }
+    } // fin insertarImpl()
     
     @Override
     public boolean existe(int id) {
@@ -71,7 +71,12 @@ public class BST implements IBST<Empleado>{
         } else {
             return null;
         }
-    } // fin obtener
+    } // fin obtener()
+    
+    @Override
+    public void preOrden() {
+        preOrdenImpl("");
+    } // fin preOrden()
     
     private void preOrdenImpl(String prefijo) {
         if (valor != null) {
@@ -79,12 +84,12 @@ public class BST implements IBST<Empleado>{
             if (izquierdo != null) izquierdo.preOrdenImpl(prefijo + "  ");
             if (derecho != null) derecho.preOrdenImpl(prefijo + "  ");
         } 
-    } // preOrdenImpl()
+    } // fin preOrdenImpl()
     
     @Override
-    public void preOrden() {
-        preOrdenImpl("");
-    } // fin preOrden()
+    public void inOrden() {
+        inOrdenImpl("");
+    } // fin inOrden()
     
     private void inOrdenImpl(String prefijo) {
         if (valor != null) {
@@ -92,13 +97,8 @@ public class BST implements IBST<Empleado>{
             System.out.println(prefijo + valor);
             if (derecho != null) derecho.inOrdenImpl(prefijo + "  ");
         }
-    } // inOrdenImpl()
+    } // fin inOrdenImpl()
     
-    @Override
-    public void inOrden() {
-        inOrdenImpl("");
-    } // fin inOrden()
-
     @Override
     public void postOrden() {
         postOrdenImpl("");
@@ -110,7 +110,7 @@ public class BST implements IBST<Empleado>{
             if (derecho != null) derecho.postOrdenImpl(prefijo + "  ");
             System.out.println(prefijo + valor);
         }
-    } // postOrdenImpl()
+    } // fin postOrdenImpl()
     
     @Override
     public void eliminar(int id) {
@@ -146,7 +146,7 @@ public class BST implements IBST<Empleado>{
             }
             valor = null;
         }
-    }
+    } // fin eliminarImpl()
     
     private BST minimo () {
         if (izquierdo != null && !izquierdo.esVacio()) {
@@ -154,5 +154,5 @@ public class BST implements IBST<Empleado>{
         } else {
             return this;
         }
-    }
+    } // fin minimo()
 } // fin clase BST
