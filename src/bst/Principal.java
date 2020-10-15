@@ -1,6 +1,8 @@
 
 package bst;
 
+import java.util.Arrays;
+
 public class Principal {
 
     public static void main(String[] args) {
@@ -15,17 +17,13 @@ public class Principal {
         e6 = new Empleado(55, "Julio Gonzalez", "Informatica", "B-161");
                
         BST bst = new BST();
+        Arrays.asList(e1, e2, e3, e4, e5, e6).forEach(bst::insertar);
         
-        System.out.printf("Esta vacio:%s - Es Hoja:%s \n", bst.esVacio(), bst.esHoja());
-        
-        bst.insertar(e1);
-        System.out.printf("Esta vacio:%s - Es Hoja:%s \n", bst.esVacio(), bst.esHoja());
-        
-        bst.insertar(e2);
-        System.out.printf("Esta vacio:%s - Es Hoja:%s \n", bst.esVacio(), bst.esHoja());
-        
-        localizar(bst, 44);
-        localizar(bst, 5);
+        bst.preOrden();
+        System.out.println("");
+        bst.inOrden();
+        System.out.println("");
+        bst.postOrden();
     } // fin main()
     
     private static void localizar(BST bst, int id) {

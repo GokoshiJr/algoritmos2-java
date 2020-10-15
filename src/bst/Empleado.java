@@ -60,7 +60,7 @@ public class Empleado implements Comparable<Empleado> {
     
     @Override
     public String toString() { 
-        return String.format("ID:%-6d Nombre:%-20s Puesto:%-20s Despacho:%-20s", id, nombre, puesto, despacho);
+        return String.format("Empleado{ID=%d, Nombre=%s, Puesto=%s, Despacho=%s}", id, nombre, puesto, despacho);
     }
     
 } // fin clase Empleado

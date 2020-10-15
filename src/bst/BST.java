@@ -16,7 +16,7 @@ public class BST implements IBST<Empleado>{
     public boolean esHoja() {
         return valor != null && izquierdo == null && derecho == null;
     } // fin esHoja()
-    
+        
     @Override
     public void insertar(Empleado empl) {
         if (valor == null) {
@@ -67,34 +67,46 @@ public class BST implements IBST<Empleado>{
             return null;
         }
     } // fin obtener
-
+    
+    private void preOrdenImpl(String prefijo) {
+        if (valor != null) {
+            System.out.println(prefijo + valor);
+            if (izquierdo != null) izquierdo.preOrdenImpl(prefijo + "  ");
+            if (derecho != null) derecho.preOrdenImpl(prefijo + "  ");
+        } 
+    } // preOrdenImpl()
+    
     @Override
     public void preOrden() {
-        if (valor != null) {
-            System.out.println(valor);
-            if (izquierdo != null) izquierdo.preOrden();
-            if (derecho != null) derecho.preOrden();
-        } 
+        preOrdenImpl("");
     } // fin preOrden()
-
+    
+    private void inOrdenImpl(String prefijo) {
+        if (valor != null) {
+            if (izquierdo != null) izquierdo.inOrdenImpl(prefijo + "  ");
+            System.out.println(prefijo + valor);
+            if (derecho != null) derecho.inOrdenImpl(prefijo + "  ");
+        }
+    } // inOrdenImpl()
+    
     @Override
     public void inOrden() {
-        if (valor != null) {
-            if (izquierdo != null) izquierdo.inOrden();
-            System.out.println(valor);
-            if (derecho != null) derecho.inOrden();
-        }
+        inOrdenImpl("");
     } // fin inOrden()
 
     @Override
     public void postOrden() {
-        if (valor != null) {
-            if (izquierdo != null) izquierdo.postOrden();
-            if (derecho != null) derecho.postOrden();
-            System.out.println(valor);
-        }
+        postOrdenImpl("");
     } // fin postOrden()
-
+    
+    private void postOrdenImpl(String prefijo) {
+        if (valor != null) {
+            if (izquierdo != null) izquierdo.postOrdenImpl(prefijo + "  ");
+            if (derecho != null) derecho.postOrdenImpl(prefijo + "  ");
+            System.out.println(prefijo + valor);
+        }
+    } // postOrdenImpl()
+    
     @Override
     public void eliminar(int id) {
         
