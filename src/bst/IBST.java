@@ -20,5 +20,4 @@ public interface IBST <T extends Comparable> {
     void postOrden();
     
     void eliminar(int id);
-    
 }

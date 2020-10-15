@@ -8,12 +8,14 @@ public class BST implements IBST<Empleado>{
     private BST izquierdo, derecho;
     
     @Override
-    public boolean esVacio() { return valor == null; }
+    public boolean esVacio() { 
+        return valor == null; 
+    } // fin esVacio()
     
     @Override
     public boolean esHoja() {
         return valor != null && izquierdo == null && derecho == null;
-    }
+    } // fin esHoja()
     
     @Override
     public void insertar(Empleado empl) {
@@ -30,7 +32,7 @@ public class BST implements IBST<Empleado>{
                 throw new RuntimeException("Insertando elemento duplicado");
             }
         }
-    }
+    } // fin insertar()
 
     @Override
     public boolean existe(int id) {
@@ -47,7 +49,7 @@ public class BST implements IBST<Empleado>{
         } else {
             return false;
         }
-    }
+    } // fin existe()
 
     @Override
     public Empleado obtener(int id) {
@@ -64,31 +66,37 @@ public class BST implements IBST<Empleado>{
         } else {
             return null;
         }
-    }
-
-    
+    } // fin obtener
 
     @Override
     public void preOrden() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        if (valor != null) {
+            System.out.println(valor);
+            if (izquierdo != null) izquierdo.preOrden();
+            if (derecho != null) derecho.preOrden();
+        } 
+    } // fin preOrden()
 
     @Override
     public void inOrden() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        if (valor != null) {
+            if (izquierdo != null) izquierdo.inOrden();
+            System.out.println(valor);
+            if (derecho != null) derecho.inOrden();
+        }
+    } // fin inOrden()
 
     @Override
     public void postOrden() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        if (valor != null) {
+            if (izquierdo != null) izquierdo.postOrden();
+            if (derecho != null) derecho.postOrden();
+            System.out.println(valor);
+        }
+    } // fin postOrden()
 
     @Override
     public void eliminar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
-
         
-}
+    } // fin eliminar()
+} // fin clase BST

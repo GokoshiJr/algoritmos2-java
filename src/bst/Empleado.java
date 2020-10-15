@@ -15,21 +15,37 @@ public class Empleado implements Comparable<Empleado> {
         this.despacho = despacho;
     }
 
-    public int getId() { return id; }
+    public int getId() { 
+        return id; 
+    }
 
-    public String getNombre() { return nombre; }
+    public String getNombre() { 
+        return nombre; 
+    }
 
-    public String getPuesto() { return puesto; }
+    public String getPuesto() { 
+        return puesto; 
+    }
 
-    public String getDespacho() { return despacho; }
+    public String getDespacho() { 
+        return despacho; 
+    }
 
-    public void setId(int id) { this.id = id; }
+    public void setId(int id) { 
+        this.id = id; 
+    }
 
-    public void setNombre(String nombre) { this.nombre = nombre; }
+    public void setNombre(String nombre) { 
+        this.nombre = nombre; 
+    }
 
-    public void setPuesto(String puesto) { this.puesto = puesto; }
+    public void setPuesto(String puesto) { 
+        this.puesto = puesto; 
+    }
 
-    public void setDespacho(String despacho) { this.despacho = despacho; }
+    public void setDespacho(String despacho) { 
+        this.despacho = despacho; 
+    }
 
     @Override
     public int compareTo(Empleado empl) {

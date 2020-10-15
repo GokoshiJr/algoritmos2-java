@@ -26,8 +26,7 @@ public class Principal {
         
         localizar(bst, 44);
         localizar(bst, 5);
-        
-    }
+    } // fin main()
     
     private static void localizar(BST bst, int id) {
         if (bst.existe(id)) {
@@ -35,5 +34,5 @@ public class Principal {
         } else {
             System.out.printf("No encuentro el empleado %d \n", id);
         }
-    }
-}
+    } // fin localizar()    
+} // fin clase Principal
