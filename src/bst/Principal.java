@@ -18,7 +18,6 @@ public class Principal {
                
         BST bst = new BST();
         Arrays.asList(e1, e2, e3, e4, e5, e6).forEach(bst::insertar);
-        
     } // fin main()
     
     private static void localizar(BST bst, int id) {

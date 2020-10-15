@@ -17,6 +17,14 @@ public class BST implements IBST<Empleado>{
         return valor != null && izquierdo == null && derecho == null;
     } // fin esHoja()
     
+    public BST getHijoDerecho() {
+        return derecho;
+    } // getHijoDerecho()
+    
+    public BST getHijoIzquierdo() {
+        return izquierdo;
+    } // fin getHijoIzquierdo()
+    
     @Override
     public void insertar(Empleado empl) {
         insertarImpl(empl, null);
