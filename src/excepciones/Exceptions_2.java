@@ -20,10 +20,12 @@ public class Exceptions_2 {
                 System.out.println(palabra);
             }
         } catch (FileNotFoundException ex) { // atrapando la excepcion
+            System.out.println("No se encuentra el archivo");
             Logger.getLogger(Exceptions_2.class.getName()).log(Level.SEVERE, null, ex);
         }
     } // fin main()
     
+    // Calcula la cantidad de registros en el archivo, Example.txt
     public static int calculoRegistros() throws FileNotFoundException {
         int registros = 0;
         Scanner leer = new Scanner(new File("src/excepciones/Example.txt"));
@@ -35,6 +37,7 @@ public class Exceptions_2 {
         return registros;
     } // fin calculoRegistros()
     
+    // Lee el archivo y carga las palabras en un array de Strings
     public static void leoArchivo(String palabras[]) throws FileNotFoundException {
         Scanner leer = new Scanner(new File("src/excepciones/Example.txt"));
         int registro = 0;
