@@ -16,6 +16,7 @@ $ git clone https://github.com/GokoshiJr/algoritmos2-java.git
 - *[Pilas](https://github.com/GokoshiJr/algoritmos2-java/tree/master/src/tda_pilas).*
 - *[Binary Search Trees](https://github.com/GokoshiJr/algoritmos2-java/tree/master/src/bst).*
 - *[Exceptions](https://github.com/GokoshiJr/algoritmos2-java/tree/master/src/excepciones).*
+- *[Debugger](https://github.com/GokoshiJr/algoritmos2-java/tree/master/src/debugger).*
 
 ## Contributing
 
