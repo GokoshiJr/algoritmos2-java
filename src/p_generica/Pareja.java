@@ -16,5 +16,10 @@ public class Pareja<T> {
     public T getPrimero() {
         return primero;
     }
-    
+    /* 
+        Metodos Genericos son aquellos que podemos usar y se adaptan
+        a cualquier tipo de objeto, no tienen porque estar construidos 
+        dentro de clases genericas pueden tambien estar construidos dentro
+        de clases normales.
+    */
 }
